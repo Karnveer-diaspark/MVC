@@ -1,0 +1,1149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="happyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ClaimDetail">
+          <Key>
+            <PropertyRef Name="ClaimDetailID" />
+          </Key>
+          <Property Name="ClaimDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClaimAmount" Type="bigint" />
+          <Property Name="ApprovedAmount" Type="bigint" />
+          <Property Name="DateTimeStamp" Type="datetime" />
+          <Property Name="ChequeNumber" Type="varchar" MaxLength="200" />
+          <Property Name="BankName" Type="varchar" MaxLength="200" />
+          <Property Name="PolicyDetailID" Type="int" />
+          <Property Name="Status" Type="varchar" MaxLength="200" />
+          <Property Name="RejectionReason" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="Contactus">
+          <Key>
+            <PropertyRef Name="ContactusID" />
+          </Key>
+          <Property Name="ContactusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="PhoneNo" Type="varchar" MaxLength="50" />
+          <Property Name="Message" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="200" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="200" />
+          <Property Name="LastName" Type="varchar" MaxLength="200" />
+          <Property Name="ContactNo" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="200" />
+          <Property Name="Password" Type="varchar" MaxLength="200" />
+          <Property Name="FailedLoginCount" Type="int" />
+          <Property Name="DOB" Type="datetime" />
+          <Property Name="Address" Type="varchar" MaxLength="200" />
+          <Property Name="Street" Type="varchar" MaxLength="200" />
+          <Property Name="city" Type="varchar" MaxLength="200" />
+          <Property Name="State" Type="varchar" MaxLength="200" />
+          <Property Name="PIN" Type="varchar" MaxLength="50" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="AadharNo" Type="varchar" MaxLength="50" />
+          <Property Name="EnquiryID" Type="int" />
+        </EntityType>
+        <EntityType Name="newEnquiry">
+          <Key>
+            <PropertyRef Name="EnquiryID" />
+          </Key>
+          <Property Name="EnquiryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Firstname" Type="varchar" MaxLength="150" />
+          <Property Name="MIddlename" Type="varchar" MaxLength="150" />
+          <Property Name="Lastname" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Contactno" Type="varchar" MaxLength="15" />
+          <Property Name="PolicyMasterID" Type="int" />
+        </EntityType>
+        <EntityType Name="PolicyDetail">
+          <Key>
+            <PropertyRef Name="PolicyDetailID" />
+          </Key>
+          <Property Name="PolicyDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerID" Type="int" />
+          <Property Name="PolicyMasterID" Type="int" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="Status" Type="varchar" MaxLength="200" />
+          <Property Name="RejectionReason" Type="varchar" MaxLength="200" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="PolicyDocumentID" Type="int" />
+          <Property Name="SumAssured" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="PolicyDocument">
+          <Key>
+            <PropertyRef Name="PolicyDocumentID" />
+          </Key>
+          <Property Name="PolicyDocumentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PolicyDetailID" Type="int" />
+          <Property Name="DocumentType" Type="varchar" MaxLength="200" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="URL" Type="varchar" MaxLength="200" />
+          <Property Name="ClaimDetailID" Type="int" />
+        </EntityType>
+        <EntityType Name="PolicyMaster">
+          <Key>
+            <PropertyRef Name="PolicyMasterID" />
+          </Key>
+          <Property Name="PolicyMasterID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SumAssured" Type="varchar" MaxLength="200" />
+          <Property Name="PremiumAmount" Type="bigint" />
+          <Property Name="Duration" Type="int" />
+          <Property Name="Name" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateTimeStamp" Type="datetime" />
+          <Property Name="ChequeNumber" Type="varchar" MaxLength="200" />
+          <Property Name="BankName" Type="varchar" MaxLength="200" />
+          <Property Name="PolicyDetailID" Type="int" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="200" />
+          <Property Name="ContactNumber" Type="bigint" />
+          <Property Name="Email" Type="varchar" MaxLength="200" />
+          <Property Name="Password" Type="varchar" MaxLength="200" />
+          <Property Name="FailedLoginCount" Type="int" />
+          <Property Name="Role" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <Association Name="FK_ClaimDetail_PolicyDetail">
+          <End Role="PolicyDetail" Type="Self.PolicyDetail" Multiplicity="0..1" />
+          <End Role="ClaimDetail" Type="Self.ClaimDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PolicyDetail">
+              <PropertyRef Name="PolicyDetailID" />
+            </Principal>
+            <Dependent Role="ClaimDetail">
+              <PropertyRef Name="PolicyDetailID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Customer1" Type="Self.Customer" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Customer1">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_newEnquiry">
+          <End Role="newEnquiry" Type="Self.newEnquiry" Multiplicity="0..1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="newEnquiry">
+              <PropertyRef Name="EnquiryID" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="EnquiryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PolicyDetail_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="PolicyDetail" Type="Self.PolicyDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="PolicyDetail">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PolicyDetail_PolicyDetail">
+          <End Role="PolicyMaster" Type="Self.PolicyMaster" Multiplicity="0..1" />
+          <End Role="PolicyDetail" Type="Self.PolicyDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PolicyMaster">
+              <PropertyRef Name="PolicyMasterID" />
+            </Principal>
+            <Dependent Role="PolicyDetail">
+              <PropertyRef Name="PolicyMasterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PolicyDetail_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="PolicyDetail" Type="Self.PolicyDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="PolicyDetail">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PolicyDocument_ClaimDetail">
+          <End Role="ClaimDetail" Type="Self.ClaimDetail" Multiplicity="0..1" />
+          <End Role="PolicyDocument" Type="Self.PolicyDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClaimDetail">
+              <PropertyRef Name="ClaimDetailID" />
+            </Principal>
+            <Dependent Role="PolicyDocument">
+              <PropertyRef Name="ClaimDetailID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_PolicyDetail">
+          <End Role="PolicyDetail" Type="Self.PolicyDetail" Multiplicity="0..1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PolicyDetail">
+              <PropertyRef Name="PolicyDetailID" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="PolicyDetailID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="MasterInsertUpdateDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Firstname" Type="varchar" Mode="In" />
+          <Parameter Name="Middlename" Type="varchar" Mode="In" />
+          <Parameter Name="Lastname" Type="varchar" Mode="In" />
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+          <Parameter Name="ContactNo" Type="varchar" Mode="In" />
+          <Parameter Name="PolicyMasterID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Newenquerylist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SelectCustomerIDList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SelectCustomerList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_approved" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomerID" Type="varchar" Mode="In" />
+          <Parameter Name="PolicyDetailID" Type="varchar" Mode="In" />
+          <Parameter Name="Status" Type="varchar" Mode="In" />
+          <Parameter Name="Password" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spCheckLoginStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EmailId" Type="varchar" Mode="In" />
+          <Parameter Name="Password" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spcontact" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FullName" Type="varchar" Mode="In" />
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+          <Parameter Name="PhoneNumber" Type="varchar" Mode="In" />
+          <Parameter Name="Message" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spcontactus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FullName" Type="varchar" Mode="In" />
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+          <Parameter Name="PhoneNo" Type="varchar" Mode="In" />
+          <Parameter Name="Message" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spCustomerPolicyDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SumAssured" Type="varchar" Mode="In" />
+          <Parameter Name="CustomerID" Type="int" Mode="In" />
+          <Parameter Name="StartDate" Type="datetime" Mode="In" />
+          <Parameter Name="EndDate" Type="datetime" Mode="In" />
+          <Parameter Name="PolicyMasterID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spGETadmin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spGETcontactus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spGetEnquiry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spGetEnquiryAgent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EnquiryID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spGetEnquiryCustomerList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spGetEnquiryList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spRegisterCustomer00" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomerID" Type="int" Mode="In" />
+          <Parameter Name="FirstName" Type="varchar" Mode="In" />
+          <Parameter Name="MiddleName" Type="varchar" Mode="In" />
+          <Parameter Name="LastName" Type="varchar" Mode="In" />
+          <Parameter Name="Address" Type="varchar" Mode="In" />
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+          <Parameter Name="ContactNo" Type="varchar" Mode="In" />
+          <Parameter Name="city" Type="varchar" Mode="In" />
+          <Parameter Name="State" Type="varchar" Mode="In" />
+          <Parameter Name="PIN" Type="varchar" Mode="In" />
+          <Parameter Name="Street" Type="varchar" Mode="In" />
+          <Parameter Name="DOB" Type="date" Mode="In" />
+          <Parameter Name="PolicyMasterID" Type="int" Mode="In" />
+          <Parameter Name="PolicyDetailID" Type="int" Mode="In" />
+          <Parameter Name="SumAssured" Type="varchar" Mode="In" />
+          <Parameter Name="ChequeNumber" Type="varchar" Mode="In" />
+          <Parameter Name="BankName" Type="varchar" Mode="In" />
+          <Parameter Name="AadharNo" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spTransaction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BankName" Type="varchar" Mode="In" />
+          <Parameter Name="ChequeNumber" Type="varchar" Mode="In" />
+          <Parameter Name="DateTimeStamp" Type="datetime" Mode="In" />
+          <Parameter Name="PolicyDetailID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spUpdateCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomerID" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Address" Type="varchar" Mode="In" />
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+          <Parameter Name="ContactNo" Type="varchar" Mode="In" />
+          <Parameter Name="city" Type="varchar" Mode="In" />
+          <Parameter Name="State" Type="varchar" Mode="In" />
+          <Parameter Name="PIN" Type="bigint" Mode="In" />
+          <Parameter Name="Street" Type="varchar" Mode="In" />
+          <Parameter Name="DOB" Type="datetime" Mode="In" />
+          <Parameter Name="ParentID" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="happyModelStoreContainer">
+          <EntitySet Name="ClaimDetail" EntityType="Self.ClaimDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contactus" EntityType="Self.Contactus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="newEnquiry" EntityType="Self.newEnquiry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PolicyDetail" EntityType="Self.PolicyDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PolicyDocument" EntityType="Self.PolicyDocument" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PolicyMaster" EntityType="Self.PolicyMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transaction" EntityType="Self.Transaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ClaimDetail_PolicyDetail" Association="Self.FK_ClaimDetail_PolicyDetail">
+            <End Role="PolicyDetail" EntitySet="PolicyDetail" />
+            <End Role="ClaimDetail" EntitySet="ClaimDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_Customer" Association="Self.FK_Customer_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Customer1" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_newEnquiry" Association="Self.FK_Customer_newEnquiry">
+            <End Role="newEnquiry" EntitySet="newEnquiry" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PolicyDetail_Customer" Association="Self.FK_PolicyDetail_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="PolicyDetail" EntitySet="PolicyDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PolicyDetail_PolicyDetail" Association="Self.FK_PolicyDetail_PolicyDetail">
+            <End Role="PolicyMaster" EntitySet="PolicyMaster" />
+            <End Role="PolicyDetail" EntitySet="PolicyDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PolicyDetail_Users" Association="Self.FK_PolicyDetail_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="PolicyDetail" EntitySet="PolicyDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PolicyDocument_ClaimDetail" Association="Self.FK_PolicyDocument_ClaimDetail">
+            <End Role="ClaimDetail" EntitySet="ClaimDetail" />
+            <End Role="PolicyDocument" EntitySet="PolicyDocument" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_PolicyDetail" Association="Self.FK_Transaction_PolicyDetail">
+            <End Role="PolicyDetail" EntitySet="PolicyDetail" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="happyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ClaimDetail">
+          <Key>
+            <PropertyRef Name="ClaimDetailID" />
+          </Key>
+          <Property Name="ClaimDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClaimAmount" Type="Int64" />
+          <Property Name="ApprovedAmount" Type="Int64" />
+          <Property Name="DateTimeStamp" Type="DateTime" Precision="3" />
+          <Property Name="ChequeNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="BankName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PolicyDetailID" Type="Int32" />
+          <Property Name="Status" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="RejectionReason" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PolicyDetail" Relationship="Self.FK_ClaimDetail_PolicyDetail" FromRole="ClaimDetail" ToRole="PolicyDetail" />
+          <NavigationProperty Name="PolicyDocuments" Relationship="Self.FK_PolicyDocument_ClaimDetail" FromRole="ClaimDetail" ToRole="PolicyDocument" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FailedLoginCount" Type="Int32" />
+          <Property Name="DOB" Type="DateTime" Precision="3" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Street" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PIN" Type="Int64" />
+          <Property Name="ParentID" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="PolicyDetails" Relationship="Self.FK_PolicyDetail_Customer" FromRole="Customer" ToRole="PolicyDetail" />
+          <Property Name="FirstName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="AadharNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EnquiryID" Type="Int32" />
+          <NavigationProperty Name="Customer1" Relationship="happyModel.FK_Customer_Customer" FromRole="Customer" ToRole="Customer1" />
+          <NavigationProperty Name="Customer2" Relationship="happyModel.FK_Customer_Customer" FromRole="Customer1" ToRole="Customer" />
+          <NavigationProperty Name="newEnquiry" Relationship="happyModel.FK_Customer_newEnquiry" FromRole="Customer" ToRole="newEnquiry" />
+        </EntityType>
+        <EntityType Name="PolicyDetail">
+          <Key>
+            <PropertyRef Name="PolicyDetailID" />
+          </Key>
+          <Property Name="PolicyDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerID" Type="Int32" />
+          <Property Name="PolicyMasterID" Type="Int32" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="RejectionReason" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="PolicyDocumentID" Type="Int32" />
+          <Property Name="SumAssured" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ClaimDetails" Relationship="Self.FK_ClaimDetail_PolicyDetail" FromRole="PolicyDetail" ToRole="ClaimDetail" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_PolicyDetail_Customer" FromRole="PolicyDetail" ToRole="Customer" />
+          <NavigationProperty Name="PolicyMaster" Relationship="Self.FK_PolicyDetail_PolicyDetail" FromRole="PolicyDetail" ToRole="PolicyMaster" />
+          <NavigationProperty Name="User" Relationship="Self.FK_PolicyDetail_Users" FromRole="PolicyDetail" ToRole="Users" />
+          <NavigationProperty Name="Transactions" Relationship="Self.FK_Transaction_PolicyDetail" FromRole="PolicyDetail" ToRole="Transaction" />
+        </EntityType>
+        <EntityType Name="PolicyDocument">
+          <Key>
+            <PropertyRef Name="PolicyDocumentID" />
+          </Key>
+          <Property Name="PolicyDocumentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PolicyDetailID" Type="Int32" />
+          <Property Name="DocumentType" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="URL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ClaimDetailID" Type="Int32" />
+          <NavigationProperty Name="ClaimDetail" Relationship="Self.FK_PolicyDocument_ClaimDetail" FromRole="PolicyDocument" ToRole="ClaimDetail" />
+        </EntityType>
+        <EntityType Name="PolicyMaster">
+          <Key>
+            <PropertyRef Name="PolicyMasterID" />
+          </Key>
+          <Property Name="PolicyMasterID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SumAssured" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PremiumAmount" Type="Int64" />
+          <Property Name="Duration" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="PolicyDetails" Relationship="Self.FK_PolicyDetail_PolicyDetail" FromRole="PolicyMaster" ToRole="PolicyDetail" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateTimeStamp" Type="DateTime" Precision="3" />
+          <Property Name="ChequeNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="BankName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PolicyDetailID" Type="Int32" />
+          <NavigationProperty Name="PolicyDetail" Relationship="Self.FK_Transaction_PolicyDetail" FromRole="Transaction" ToRole="PolicyDetail" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ContactNumber" Type="Int64" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FailedLoginCount" Type="Int32" />
+          <Property Name="Role" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PolicyDetails" Relationship="Self.FK_PolicyDetail_Users" FromRole="Users" ToRole="PolicyDetail" />
+        </EntityType>
+        <Association Name="FK_ClaimDetail_PolicyDetail">
+          <End Role="PolicyDetail" Type="Self.PolicyDetail" Multiplicity="0..1" />
+          <End Role="ClaimDetail" Type="Self.ClaimDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PolicyDetail">
+              <PropertyRef Name="PolicyDetailID" />
+            </Principal>
+            <Dependent Role="ClaimDetail">
+              <PropertyRef Name="PolicyDetailID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PolicyDocument_ClaimDetail">
+          <End Role="ClaimDetail" Type="Self.ClaimDetail" Multiplicity="0..1" />
+          <End Role="PolicyDocument" Type="Self.PolicyDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClaimDetail">
+              <PropertyRef Name="ClaimDetailID" />
+            </Principal>
+            <Dependent Role="PolicyDocument">
+              <PropertyRef Name="ClaimDetailID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PolicyDetail_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="PolicyDetail" Type="Self.PolicyDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="PolicyDetail">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PolicyDetail_PolicyDetail">
+          <End Role="PolicyMaster" Type="Self.PolicyMaster" Multiplicity="0..1" />
+          <End Role="PolicyDetail" Type="Self.PolicyDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PolicyMaster">
+              <PropertyRef Name="PolicyMasterID" />
+            </Principal>
+            <Dependent Role="PolicyDetail">
+              <PropertyRef Name="PolicyMasterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PolicyDetail_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="PolicyDetail" Type="Self.PolicyDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="PolicyDetail">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_PolicyDetail">
+          <End Role="PolicyDetail" Type="Self.PolicyDetail" Multiplicity="0..1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PolicyDetail">
+              <PropertyRef Name="PolicyDetailID" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="PolicyDetailID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="happyEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ClaimDetails" EntityType="Self.ClaimDetail" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="PolicyDetails" EntityType="Self.PolicyDetail" />
+          <EntitySet Name="PolicyDocuments" EntityType="Self.PolicyDocument" />
+          <EntitySet Name="PolicyMasters" EntityType="Self.PolicyMaster" />
+          <EntitySet Name="Transactions" EntityType="Self.Transaction" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_ClaimDetail_PolicyDetail" Association="Self.FK_ClaimDetail_PolicyDetail">
+            <End Role="PolicyDetail" EntitySet="PolicyDetails" />
+            <End Role="ClaimDetail" EntitySet="ClaimDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PolicyDocument_ClaimDetail" Association="Self.FK_PolicyDocument_ClaimDetail">
+            <End Role="ClaimDetail" EntitySet="ClaimDetails" />
+            <End Role="PolicyDocument" EntitySet="PolicyDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PolicyDetail_Customer" Association="Self.FK_PolicyDetail_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="PolicyDetail" EntitySet="PolicyDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PolicyDetail_PolicyDetail" Association="Self.FK_PolicyDetail_PolicyDetail">
+            <End Role="PolicyMaster" EntitySet="PolicyMasters" />
+            <End Role="PolicyDetail" EntitySet="PolicyDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PolicyDetail_Users" Association="Self.FK_PolicyDetail_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="PolicyDetail" EntitySet="PolicyDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_PolicyDetail" Association="Self.FK_Transaction_PolicyDetail">
+            <End Role="PolicyDetail" EntitySet="PolicyDetails" />
+            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+          <FunctionImport Name="spContactus">
+            <Parameter Name="FullName" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="PhoneNo" Mode="In" Type="String" />
+            <Parameter Name="Message" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SelectCustomerIDList" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="SelectCustomerList" ReturnType="Collection(happyModel.SelectCustomerList_Result)" />
+          <FunctionImport Name="spCustomerPolicyDetail">
+            <Parameter Name="SumAssured" Mode="In" Type="String" />
+            <Parameter Name="CustomerID" Mode="In" Type="Int32" />
+            <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+            <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+            <Parameter Name="PolicyMasterID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spGetEnquiry" ReturnType="Collection(happyModel.spGetEnquiry_Result)" />
+          <FunctionImport Name="spGetEnquiryCustomerList" ReturnType="Collection(happyModel.spGetEnquiryCustomerList_Result)" />
+          <FunctionImport Name="spGetEnquiryList" ReturnType="Collection(happyModel.spGetEnquiryList_Result)" />
+          <FunctionImport Name="spTransaction">
+            <Parameter Name="BankName" Mode="In" Type="String" />
+            <Parameter Name="ChequeNumber" Mode="In" Type="String" />
+            <Parameter Name="DateTimeStamp" Mode="In" Type="DateTime" />
+            <Parameter Name="PolicyDetailID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spUpdateCustomer">
+            <Parameter Name="CustomerID" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="ContactNo" Mode="In" Type="String" />
+            <Parameter Name="city" Mode="In" Type="String" />
+            <Parameter Name="State" Mode="In" Type="String" />
+            <Parameter Name="PIN" Mode="In" Type="Int64" />
+            <Parameter Name="Street" Mode="In" Type="String" />
+            <Parameter Name="DOB" Mode="In" Type="DateTime" />
+            <Parameter Name="ParentID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Contactus" EntityType="happyModel.Contactu" />
+          <FunctionImport Name="spAdmin" ReturnType="Collection(happyModel.spAdmin_Result)" />
+          <FunctionImport Name="spcontactus1">
+            <Parameter Name="FullName" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="PhoneNo" Mode="In" Type="String" />
+            <Parameter Name="Message" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="MasterInsertUpdateDelete">
+            <Parameter Name="Firstname" Mode="In" Type="String" />
+            <Parameter Name="Middlename" Mode="In" Type="String" />
+            <Parameter Name="Lastname" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="ContactNo" Mode="In" Type="String" />
+            <Parameter Name="PolicyMasterID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_approved" ReturnType="Collection(String)">
+            <Parameter Name="CustomerID" Mode="In" Type="String" />
+            <Parameter Name="PolicyDetailID" Mode="In" Type="String" />
+            <Parameter Name="Status" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spCheckLoginStatus" ReturnType="Collection(happyModel.spCheckLoginStatus_Result)">
+            <Parameter Name="EmailId" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spcontact">
+            <Parameter Name="FullName" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="PhoneNumber" Mode="In" Type="String" />
+            <Parameter Name="Message" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spGETcontactus" ReturnType="Collection(happyModel.spGETcontactus_Result)" />
+          <EntitySet Name="newEnquiries" EntityType="happyModel.newEnquiry" />
+          <AssociationSet Name="FK_Customer_Customer" Association="happyModel.FK_Customer_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Customer1" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_newEnquiry" Association="happyModel.FK_Customer_newEnquiry">
+            <End Role="newEnquiry" EntitySet="newEnquiries" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <FunctionImport Name="Newenquerylist" ReturnType="Collection(happyModel.Newenquerylist_Result)" />
+          <FunctionImport Name="spGETadmin" ReturnType="Collection(happyModel.spGETadmin_Result)">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spGetEnquiryAgent" ReturnType="Collection(happyModel.spGetEnquiryAgent_Result)">
+            <Parameter Name="EnquiryID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spRegisterCustomer00">
+            <Parameter Name="CustomerID" Mode="In" Type="Int32" />
+            <Parameter Name="FirstName" Mode="In" Type="String" />
+            <Parameter Name="MiddleName" Mode="In" Type="String" />
+            <Parameter Name="LastName" Mode="In" Type="String" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="ContactNo" Mode="In" Type="String" />
+            <Parameter Name="city" Mode="In" Type="String" />
+            <Parameter Name="State" Mode="In" Type="String" />
+            <Parameter Name="PIN" Mode="In" Type="String" />
+            <Parameter Name="Street" Mode="In" Type="String" />
+            <Parameter Name="DOB" Mode="In" Type="DateTime" />
+            <Parameter Name="PolicyMasterID" Mode="In" Type="Int32" />
+            <Parameter Name="PolicyDetailID" Mode="In" Type="Int32" />
+            <Parameter Name="SumAssured" Mode="In" Type="String" />
+            <Parameter Name="ChequeNumber" Mode="In" Type="String" />
+            <Parameter Name="BankName" Mode="In" Type="String" />
+            <Parameter Name="AadharNo" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="SelectCustomerList_Result">
+          <Property Type="Int32" Name="CustomerID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ContactNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Password" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="FailedLoginCount" Nullable="true" />
+          <Property Type="DateTime" Name="DOB" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Address" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Street" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="city" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="State" Nullable="true" MaxLength="200" />
+          <Property Type="Int64" Name="PIN" Nullable="true" />
+          <Property Type="Int32" Name="ParentID" Nullable="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spGetEnquiry_Result">
+          <Property Type="Int32" Name="CustomerId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="ContactNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="150" />
+        </ComplexType>
+        <ComplexType Name="spGetEnquiryCustomerList_Result">
+          <Property Type="Int32" Name="CustomerID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ContactNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Password" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="FailedLoginCount" Nullable="true" />
+          <Property Type="DateTime" Name="DOB" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Address" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Street" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="city" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="State" Nullable="true" MaxLength="200" />
+          <Property Type="Int64" Name="PIN" Nullable="true" />
+          <Property Type="Int32" Name="ParentID" Nullable="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spGetEnquiryList_Result">
+          <Property Type="Int32" Name="CustomerId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="150" />
+        </ComplexType>
+        <EntityType Name="Contactu">
+          <Key>
+            <PropertyRef Name="ContactusID" />
+          </Key>
+          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="ContactusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <ComplexType Name="spAdmin_Result">
+          <Property Type="Int32" Name="CustomerID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ContactNo" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="DOB" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Address" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Street" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="city" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="State" Nullable="true" MaxLength="200" />
+          <Property Type="Int64" Name="PIN" Nullable="true" />
+          <Property Type="Int32" Name="PolicyDetailID" Nullable="false" />
+          <Property Type="String" Name="SumAssured" Nullable="true" MaxLength="200" />
+          <Property Type="DateTime" Name="StartDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="EndDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="RejectionReason" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="spCheckLoginStatus_Result">
+          <Property Type="Int32" Name="CustomerID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ContactNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Password" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="FailedLoginCount" Nullable="true" />
+          <Property Type="DateTime" Name="DOB" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Address" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Street" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="city" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="State" Nullable="true" MaxLength="200" />
+          <Property Type="Int64" Name="PIN" Nullable="true" />
+          <Property Type="Int32" Name="ParentID" Nullable="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spGETcontactus_Result">
+          <Property Type="String" Name="FullName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Message" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="PhoneNo" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="newEnquiry">
+          <Key>
+            <PropertyRef Name="EnquiryID" />
+          </Key>
+          <Property Name="EnquiryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Firstname" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="MIddlename" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Contactno" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="PolicyMasterID" Type="Int32" />
+          <NavigationProperty Name="Customers" Relationship="happyModel.FK_Customer_newEnquiry" FromRole="newEnquiry" ToRole="Customer" />
+        </EntityType>
+        <Association Name="FK_Customer_Customer">
+          <End Type="happyModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="happyModel.Customer" Role="Customer1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Customer1">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_newEnquiry">
+          <End Type="happyModel.newEnquiry" Role="newEnquiry" Multiplicity="0..1" />
+          <End Type="happyModel.Customer" Role="Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="newEnquiry">
+              <PropertyRef Name="EnquiryID" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="EnquiryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="Newenquerylist_Result">
+          <Property Type="Int32" Name="CustomerID" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ContactNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="PolicyDetailID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="spGETadmin_Result">
+          <Property Type="Int32" Name="CustomerID" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ContactNo" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="DOB" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Address" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Street" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="city" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="State" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="PIN" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="AadharNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SumAssured" Nullable="true" MaxLength="200" />
+          <Property Type="DateTime" Name="StartDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="EndDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="ChequeNumber" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="BankName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="SumAssured1" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="spGetEnquiryAgent_Result">
+          <Property Type="String" Name="Firstname" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Middlename" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Lastname" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ContactNo" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="happyModelStoreContainer" CdmEntityContainer="happyEntities1">
+          <EntitySetMapping Name="ClaimDetails">
+            <EntityTypeMapping TypeName="happyModel.ClaimDetail">
+              <MappingFragment StoreEntitySet="ClaimDetail">
+                <ScalarProperty Name="ClaimDetailID" ColumnName="ClaimDetailID" />
+                <ScalarProperty Name="ClaimAmount" ColumnName="ClaimAmount" />
+                <ScalarProperty Name="ApprovedAmount" ColumnName="ApprovedAmount" />
+                <ScalarProperty Name="DateTimeStamp" ColumnName="DateTimeStamp" />
+                <ScalarProperty Name="ChequeNumber" ColumnName="ChequeNumber" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="PolicyDetailID" ColumnName="PolicyDetailID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="RejectionReason" ColumnName="RejectionReason" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="happyModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="EnquiryID" ColumnName="EnquiryID" />
+                <ScalarProperty Name="AadharNo" ColumnName="AadharNo" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FailedLoginCount" ColumnName="FailedLoginCount" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="PIN" ColumnName="PIN" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PolicyDetails">
+            <EntityTypeMapping TypeName="happyModel.PolicyDetail">
+              <MappingFragment StoreEntitySet="PolicyDetail">
+                <ScalarProperty Name="PolicyDetailID" ColumnName="PolicyDetailID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="PolicyMasterID" ColumnName="PolicyMasterID" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="RejectionReason" ColumnName="RejectionReason" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="PolicyDocumentID" ColumnName="PolicyDocumentID" />
+                <ScalarProperty Name="SumAssured" ColumnName="SumAssured" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PolicyDocuments">
+            <EntityTypeMapping TypeName="happyModel.PolicyDocument">
+              <MappingFragment StoreEntitySet="PolicyDocument">
+                <ScalarProperty Name="PolicyDocumentID" ColumnName="PolicyDocumentID" />
+                <ScalarProperty Name="PolicyDetailID" ColumnName="PolicyDetailID" />
+                <ScalarProperty Name="DocumentType" ColumnName="DocumentType" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="ClaimDetailID" ColumnName="ClaimDetailID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PolicyMasters">
+            <EntityTypeMapping TypeName="happyModel.PolicyMaster">
+              <MappingFragment StoreEntitySet="PolicyMaster">
+                <ScalarProperty Name="PolicyMasterID" ColumnName="PolicyMasterID" />
+                <ScalarProperty Name="SumAssured" ColumnName="SumAssured" />
+                <ScalarProperty Name="PremiumAmount" ColumnName="PremiumAmount" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transactions">
+            <EntityTypeMapping TypeName="happyModel.Transaction">
+              <MappingFragment StoreEntitySet="Transaction">
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+                <ScalarProperty Name="DateTimeStamp" ColumnName="DateTimeStamp" />
+                <ScalarProperty Name="ChequeNumber" ColumnName="ChequeNumber" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="PolicyDetailID" ColumnName="PolicyDetailID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="happyModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FailedLoginCount" ColumnName="FailedLoginCount" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SelectCustomerIDList" FunctionName="happyModel.Store.SelectCustomerIDList" />
+          <FunctionImportMapping FunctionImportName="SelectCustomerList" FunctionName="happyModel.Store.SelectCustomerList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="happyModel.SelectCustomerList_Result">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FailedLoginCount" ColumnName="FailedLoginCount" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="PIN" ColumnName="PIN" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spCustomerPolicyDetail" FunctionName="happyModel.Store.spCustomerPolicyDetail" />
+          <FunctionImportMapping FunctionImportName="spGetEnquiry" FunctionName="happyModel.Store.spGetEnquiry">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="happyModel.spGetEnquiry_Result">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetEnquiryCustomerList" FunctionName="happyModel.Store.spGetEnquiryCustomerList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="happyModel.spGetEnquiryCustomerList_Result">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FailedLoginCount" ColumnName="FailedLoginCount" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="PIN" ColumnName="PIN" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetEnquiryList" FunctionName="happyModel.Store.spGetEnquiryList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="happyModel.spGetEnquiryList_Result">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spTransaction" FunctionName="happyModel.Store.spTransaction" />
+          <FunctionImportMapping FunctionImportName="spUpdateCustomer" FunctionName="happyModel.Store.spUpdateCustomer" />
+          <EntitySetMapping Name="Contactus">
+            <EntityTypeMapping TypeName="happyModel.Contactu">
+              <MappingFragment StoreEntitySet="Contactus">
+                <ScalarProperty Name="ContactusID" ColumnName="ContactusID" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spcontactus1" FunctionName="happyModel.Store.spcontactus" />
+          <FunctionImportMapping FunctionImportName="MasterInsertUpdateDelete" FunctionName="happyModel.Store.MasterInsertUpdateDelete" />
+          <FunctionImportMapping FunctionImportName="sp_approved" FunctionName="happyModel.Store.sp_approved" />
+          <FunctionImportMapping FunctionImportName="spCheckLoginStatus" FunctionName="happyModel.Store.spCheckLoginStatus">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="happyModel.spCheckLoginStatus_Result">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FailedLoginCount" ColumnName="FailedLoginCount" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="PIN" ColumnName="PIN" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spcontact" FunctionName="happyModel.Store.spcontact" />
+          <FunctionImportMapping FunctionImportName="spGETcontactus" FunctionName="happyModel.Store.spGETcontactus">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="happyModel.spGETcontactus_Result">
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="newEnquiries">
+            <EntityTypeMapping TypeName="happyModel.newEnquiry">
+              <MappingFragment StoreEntitySet="newEnquiry">
+                <ScalarProperty Name="PolicyMasterID" ColumnName="PolicyMasterID" />
+                <ScalarProperty Name="Contactno" ColumnName="Contactno" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="MIddlename" ColumnName="MIddlename" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="EnquiryID" ColumnName="EnquiryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Newenquerylist" FunctionName="happyModel.Store.Newenquerylist">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="happyModel.Newenquerylist_Result">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PolicyDetailID" ColumnName="PolicyDetailID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGETadmin" FunctionName="happyModel.Store.spGETadmin">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="happyModel.spGETadmin_Result">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="PIN" ColumnName="PIN" />
+                <ScalarProperty Name="AadharNo" ColumnName="AadharNo" />
+                <ScalarProperty Name="SumAssured" ColumnName="SumAssured" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="ChequeNumber" ColumnName="ChequeNumber" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SumAssured1" ColumnName="SumAssured1" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetEnquiryAgent" FunctionName="happyModel.Store.spGetEnquiryAgent">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="happyModel.spGetEnquiryAgent_Result">
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Middlename" ColumnName="Middlename" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spRegisterCustomer00" FunctionName="happyModel.Store.spRegisterCustomer00" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

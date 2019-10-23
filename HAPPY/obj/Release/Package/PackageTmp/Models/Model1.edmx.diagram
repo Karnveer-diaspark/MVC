@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f25782527d7548e186b7574827644a15" Name="Diagram1" ZoomLevel="72">
+        <EntityTypeShape EntityType="happyModel.ClaimDetail" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="happyModel.Customer" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="happyModel.PolicyDetail" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="happyModel.PolicyDocument" Width="1.5" PointX="7.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="happyModel.PolicyMaster" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="happyModel.Transaction" Width="1.5" PointX="5.375" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="happyModel.User" Width="1.5" PointX="0.75" PointY="11.375" IsExpanded="true" />
+        <AssociationConnector Association="happyModel.FK_ClaimDetail_PolicyDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_PolicyDocument_ClaimDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_PolicyDetail_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_PolicyDetail_PolicyDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_PolicyDetail_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_Transaction_PolicyDetail" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="happyModel.Contactu" Width="1.5" PointX="7.375" PointY="4.75" />
+        <EntityTypeShape EntityType="happyModel.newEnquiry" Width="1.5" PointX="3.375" PointY="7.75" />
+        <AssociationConnector Association="happyModel.FK_Customer_Customer" />
+        <AssociationConnector Association="happyModel.FK_Customer_newEnquiry" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

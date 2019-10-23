@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="happyModelStoreContainer" CdmEntityContainer="happyEntities1">
+    <EntitySetMapping Name="ClaimDetails">
+      <EntityTypeMapping TypeName="happyModel.ClaimDetail">
+        <MappingFragment StoreEntitySet="ClaimDetail">
+          <ScalarProperty Name="ClaimDetailID" ColumnName="ClaimDetailID" />
+          <ScalarProperty Name="ClaimAmount" ColumnName="ClaimAmount" />
+          <ScalarProperty Name="ApprovedAmount" ColumnName="ApprovedAmount" />
+          <ScalarProperty Name="DateTimeStamp" ColumnName="DateTimeStamp" />
+          <ScalarProperty Name="ChequeNumber" ColumnName="ChequeNumber" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="PolicyDetailID" ColumnName="PolicyDetailID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="RejectionReason" ColumnName="RejectionReason" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="happyModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="EnquiryID" ColumnName="EnquiryID" />
+          <ScalarProperty Name="AadharNo" ColumnName="AadharNo" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FailedLoginCount" ColumnName="FailedLoginCount" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="PIN" ColumnName="PIN" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PolicyDetails">
+      <EntityTypeMapping TypeName="happyModel.PolicyDetail">
+        <MappingFragment StoreEntitySet="PolicyDetail">
+          <ScalarProperty Name="PolicyDetailID" ColumnName="PolicyDetailID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="PolicyMasterID" ColumnName="PolicyMasterID" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="RejectionReason" ColumnName="RejectionReason" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="PolicyDocumentID" ColumnName="PolicyDocumentID" />
+          <ScalarProperty Name="SumAssured" ColumnName="SumAssured" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PolicyDocuments">
+      <EntityTypeMapping TypeName="happyModel.PolicyDocument">
+        <MappingFragment StoreEntitySet="PolicyDocument">
+          <ScalarProperty Name="PolicyDocumentID" ColumnName="PolicyDocumentID" />
+          <ScalarProperty Name="PolicyDetailID" ColumnName="PolicyDetailID" />
+          <ScalarProperty Name="DocumentType" ColumnName="DocumentType" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="ClaimDetailID" ColumnName="ClaimDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PolicyMasters">
+      <EntityTypeMapping TypeName="happyModel.PolicyMaster">
+        <MappingFragment StoreEntitySet="PolicyMaster">
+          <ScalarProperty Name="PolicyMasterID" ColumnName="PolicyMasterID" />
+          <ScalarProperty Name="SumAssured" ColumnName="SumAssured" />
+          <ScalarProperty Name="PremiumAmount" ColumnName="PremiumAmount" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transactions">
+      <EntityTypeMapping TypeName="happyModel.Transaction">
+        <MappingFragment StoreEntitySet="Transaction">
+          <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+          <ScalarProperty Name="DateTimeStamp" ColumnName="DateTimeStamp" />
+          <ScalarProperty Name="ChequeNumber" ColumnName="ChequeNumber" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="PolicyDetailID" ColumnName="PolicyDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="happyModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FailedLoginCount" ColumnName="FailedLoginCount" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SelectCustomerIDList" FunctionName="happyModel.Store.SelectCustomerIDList" />
+    <FunctionImportMapping FunctionImportName="SelectCustomerList" FunctionName="happyModel.Store.SelectCustomerList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="happyModel.SelectCustomerList_Result">
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FailedLoginCount" ColumnName="FailedLoginCount" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="PIN" ColumnName="PIN" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spCustomerPolicyDetail" FunctionName="happyModel.Store.spCustomerPolicyDetail" />
+    <FunctionImportMapping FunctionImportName="spGetEnquiry" FunctionName="happyModel.Store.spGetEnquiry">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="happyModel.spGetEnquiry_Result">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetEnquiryCustomerList" FunctionName="happyModel.Store.spGetEnquiryCustomerList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="happyModel.spGetEnquiryCustomerList_Result">
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FailedLoginCount" ColumnName="FailedLoginCount" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="PIN" ColumnName="PIN" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetEnquiryList" FunctionName="happyModel.Store.spGetEnquiryList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="happyModel.spGetEnquiryList_Result">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spTransaction" FunctionName="happyModel.Store.spTransaction" />
+    <FunctionImportMapping FunctionImportName="spUpdateCustomer" FunctionName="happyModel.Store.spUpdateCustomer" />
+    <EntitySetMapping Name="Contactus">
+      <EntityTypeMapping TypeName="happyModel.Contactu">
+        <MappingFragment StoreEntitySet="Contactus">
+          <ScalarProperty Name="ContactusID" ColumnName="ContactusID" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spcontactus1" FunctionName="happyModel.Store.spcontactus" />
+    <FunctionImportMapping FunctionImportName="MasterInsertUpdateDelete" FunctionName="happyModel.Store.MasterInsertUpdateDelete" />
+    <FunctionImportMapping FunctionImportName="sp_approved" FunctionName="happyModel.Store.sp_approved" />
+    <FunctionImportMapping FunctionImportName="spCheckLoginStatus" FunctionName="happyModel.Store.spCheckLoginStatus">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="happyModel.spCheckLoginStatus_Result">
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FailedLoginCount" ColumnName="FailedLoginCount" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="PIN" ColumnName="PIN" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spcontact" FunctionName="happyModel.Store.spcontact" />
+    <FunctionImportMapping FunctionImportName="spGETcontactus" FunctionName="happyModel.Store.spGETcontactus">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="happyModel.spGETcontactus_Result">
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="newEnquiries">
+      <EntityTypeMapping TypeName="happyModel.newEnquiry">
+        <MappingFragment StoreEntitySet="newEnquiry">
+          <ScalarProperty Name="PolicyMasterID" ColumnName="PolicyMasterID" />
+          <ScalarProperty Name="Contactno" ColumnName="Contactno" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="MIddlename" ColumnName="MIddlename" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="EnquiryID" ColumnName="EnquiryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Newenquerylist" FunctionName="happyModel.Store.Newenquerylist">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="happyModel.Newenquerylist_Result">
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PolicyDetailID" ColumnName="PolicyDetailID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGETadmin" FunctionName="happyModel.Store.spGETadmin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="happyModel.spGETadmin_Result">
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="PIN" ColumnName="PIN" />
+          <ScalarProperty Name="AadharNo" ColumnName="AadharNo" />
+          <ScalarProperty Name="SumAssured" ColumnName="SumAssured" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="ChequeNumber" ColumnName="ChequeNumber" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SumAssured1" ColumnName="SumAssured1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetEnquiryAgent" FunctionName="happyModel.Store.spGetEnquiryAgent">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="happyModel.spGetEnquiryAgent_Result">
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Middlename" ColumnName="Middlename" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spRegisterCustomer00" FunctionName="happyModel.Store.spRegisterCustomer00" />
+  </EntityContainerMapping>
+</Mapping>
